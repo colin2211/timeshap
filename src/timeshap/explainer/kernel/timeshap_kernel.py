@@ -50,14 +50,14 @@ from timeshap.utils.timeshap_legacy import time_shap_match_instance_to_data, \
     time_shap_match_model_to_data, time_shap_convert_to_data, TimeShapDenseData
 from shap.utils._legacy import convert_to_link, IdentityLink
 from shap.utils._legacy import convert_to_instance, convert_to_model
-from shap.explainers._kernel import Kernel
+from shap.explainers._kernel import KernelExplainer
 from scipy.special import binom
 from scipy.sparse import issparse
 
 log = logging.getLogger('shap')
 
 
-class TimeShapKernel(Kernel):
+class TimeShapKernel(KernelExplainer):
     """Uses TimeSHAP Kernel SHAP method to explain the output of any function.
 
     TimeSHAP extends KernelSHAP to explain sequences of features on several axis.
