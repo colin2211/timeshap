@@ -515,7 +515,8 @@ class TimeShapKernel(KernelExplainer):
             # solve then expand the feature importance (Shapley value) vector to contain the non-varying features
             phi = np.zeros((self.data.groups_size, self.D))
             for d in range(self.D):
-                print("Calling solve with:", self.nsamples / self.max_samples, d)
+                print("Calling solve with:", self.nsamples , self.max_samples, d)
+                print(self.nsamples.dtype, self.max_samples.dtype, d)
                 vphi, _ = self.solve(self.nsamples / self.max_samples, d)
                 if self.mode == 'event':
                     phi[:, d] = vphi
