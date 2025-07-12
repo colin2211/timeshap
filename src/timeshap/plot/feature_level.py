@@ -39,6 +39,8 @@ def plot_feat_barplot(feat_data: pd.DataFrame,
     feat_data = copy.deepcopy(feat_data)
     if plot_features:
         plot_features['Pruned Events'] = 'Pruned Events'
+        print(feat_data)
+        print(plot_features)
         feat_data['Feature'] = feat_data['Feature'].apply(lambda x: plot_features[x])
 
     feat_data['sort_col'] = feat_data['Shapley Value'].apply(lambda x: abs(x))
